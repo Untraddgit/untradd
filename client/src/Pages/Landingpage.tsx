@@ -217,19 +217,20 @@ const LandingPage = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-6">
-            <button
-              onClick={() => scrollToSection('core-programs')}
-              className="text-gray-300 hover:text-yellow-400 transition duration-300"
-            >
-              Courses
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="text-gray-300 hover:text-yellow-400 transition duration-300"
-            >
-              Contact Us
-            </button>
-          </div>
+  <button
+    onClick={() => scrollToSection('core-programs')}
+    className="px-4 py-2 text-sm text-gray-300 hover:text-yellow-400 border border-gray-500 rounded-md hover:border-yellow-400 transition duration-300"
+  >
+    Courses
+  </button>
+  <button
+    onClick={() => scrollToSection('contact')}
+    className="px-4 py-2 text-sm text-gray-300 hover:text-yellow-400 border border-gray-500 rounded-md hover:border-yellow-400 transition duration-300"
+  >
+    Contact Us
+  </button>
+</div>
+
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
