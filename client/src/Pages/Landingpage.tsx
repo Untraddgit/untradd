@@ -15,16 +15,17 @@ import seminar from '../assets/seminar.jpg';
 import howitworks from '../assets/howitworks.jpg';
 
 const LandingPage = () => {
-   // Data for dynamic rendering
-    const [isNavOpen, setIsNavOpen] = useState(false);
-  
-    const scrollToSection = (id: string) => {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-        setIsNavOpen(false); // Close mobile menu after clicking
-      }
-    };
+  // Data for dynamic rendering
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section !== null) { // Explicit null check
+      section.scrollIntoView({ behavior: 'smooth' });
+      setIsNavOpen(false); // Close mobile menu after clicking
+    }
+  };
+
 
   const programCards = [
     {
@@ -207,8 +208,8 @@ const LandingPage = () => {
       <nav className="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg z-50 shadow-md">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo */}
-          <div 
-            className="text-yellow-400 text-3xl font-bold cursor-pointer" 
+          <div
+            className="text-yellow-400 text-3xl font-bold cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
             Untradd.
@@ -216,14 +217,14 @@ const LandingPage = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-6">
-            <button 
-              onClick={() => scrollToSection('core-programs')} 
+            <button
+              onClick={() => scrollToSection('core-programs')}
               className="text-gray-300 hover:text-yellow-400 transition duration-300"
             >
               Courses
             </button>
-            <button 
-              onClick={() => scrollToSection('contact')} 
+            <button
+              onClick={() => scrollToSection('contact')}
               className="text-gray-300 hover:text-yellow-400 transition duration-300"
             >
               Contact Us
@@ -239,18 +240,18 @@ const LandingPage = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div 
+        <div
           className={`md:hidden ${isNavOpen ? 'block' : 'hidden'} bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg`}
         >
           <div className="flex flex-col space-y-4 p-4">
-            <button 
-              onClick={() => scrollToSection('core-programs')} 
+            <button
+              onClick={() => scrollToSection('core-programs')}
               className="text-gray-300 hover:text-yellow-400 transition duration-300 text-left"
             >
               Courses
             </button>
-            <button 
-              onClick={() => scrollToSection('contact')} 
+            <button
+              onClick={() => scrollToSection('contact')}
               className="text-gray-300 hover:text-yellow-400 transition duration-300 text-left"
             >
               Contact Us
@@ -465,7 +466,7 @@ const LandingPage = () => {
             <button
               onClick={() => {
                 const popup = document.getElementById('contact-options-popup');
-                if (popup) popup.classList.toggle('hidden');
+                popup?.classList.toggle('hidden'); // Using optional chaining
               }}
               className="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-lg transition duration-300 inline-flex items-center"
             >
@@ -480,8 +481,8 @@ const LandingPage = () => {
               id="contact-options-popup"
               className="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
               onClick={(e) => {
-                if (e.target.id === 'contact-options-popup') {
-                  document.getElementById('contact-options-popup').classList.add('hidden');
+                if (e.target instanceof HTMLElement && e.target.id === 'contact-options-popup') {
+                  document.getElementById('contact-options-popup')?.classList.add('hidden'); // Using optional chaining
                 }
               }}
             >
@@ -489,7 +490,7 @@ const LandingPage = () => {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-xl font-bold text-gray-800">Contact Us</h3>
                   <button
-                    onClick={() => document.getElementById('contact-options-popup').classList.add('hidden')}
+                    onClick={() => document.getElementById('contact-options-popup')?.classList.add('hidden')} // Using optional chaining
                     className="text-gray-500 hover:text-gray-700"
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -526,6 +527,7 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -773,11 +775,16 @@ const LandingPage = () => {
 
               <form className="space-y-4" id="whatsappForm" onSubmit={(e) => {
                 e.preventDefault();
-                const name = document.getElementById('name').value;
+                const nameInput = document.getElementById('name') as HTMLInputElement;
+                const name = nameInput?.value || "";
+
+                if (!name) return; // Avoid sending an empty name
+
                 const message = `Hey Untradd, I am ${name}, I wanted to know more about the presentation.`;
                 const whatsappUrl = `https://wa.me/918789698369?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
               }}>
+
                 <div>
                   <label className="block text-gray-300 mb-2">Name</label>
                   <input
