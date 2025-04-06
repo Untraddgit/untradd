@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import LearnMorePopup from './LearnMorePopup'; // Import the component
+
 import {
   FaGraduationCap,
   FaBrain,
@@ -6,17 +8,28 @@ import {
   FaHandHoldingUsd,
   FaChalkboardTeacher,
   FaUsers,
-  FaBars,
-  FaArrowRight,
+  FaBars,FaBan, FaHeart,
+  FaArrowRight, FaPuzzlePiece,
   FaStar
 } from 'react-icons/fa';
 import { MdOutlineWork, MdTouchApp, MdSupervisorAccount } from 'react-icons/md';
 import seminar from '../assets/seminar.jpg';
+
+
 import howitworks from '../assets/howitworks.jpg';
 
 const LandingPage = () => {
   // Data for dynamic rendering
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState(null);
+
+  const openLearnMore = (program) => {
+    setSelectedProgram(program);
+  };
+
+  const closeLearnMore = () => {
+    setSelectedProgram(null);
+  };
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -26,6 +39,23 @@ const LandingPage = () => {
     }
   };
 
+  const approachCards = [
+    {
+      icon: <FaGraduationCap className="text-green-600 text-2xl" />,
+      title: "World-Class Expertise",
+      content: "Course designed by the top 0.1% of experts in their field, shaping future leaders."
+    },
+    {
+      icon: <FaUsers className="text-green-600 text-2xl" />,
+      title: "Global Course Design",
+      content: "Crafted specifically for top institutions like IIT, IIM, Harvard, and Oxford, and tailored for the Netherlands' schools."
+    },
+    {
+      icon: <FaChalkboardTeacher className="text-green-600 text-2xl" />,
+      title: "Future-Focused Skills",
+      content: "Courses focused on the skills and learning that matter now and in the future."
+    }
+  ];
 
   const programCards = [
     {
@@ -55,79 +85,29 @@ const LandingPage = () => {
     },
     {
       icon: <MdTouchApp className="text-yellow-500 text-2xl" />,
-      title: "Digital Literacy",
+      title: "AI & Digital Literacy in 2025",
       content: "Equip students with essential digital tools and skills, including AI technologies, required for success in today's tech-driven world. From using basic software to navigating online platforms and understanding AI's role, prepare them for the future workplace."
+    },
+    {
+      icon: <FaHeart className="text-yellow-500 text-2xl" />,
+      title: "Mental & Physical Health",
+      content: "Teach students the importance of balancing mental and physical well-being. Learn stress management, mindfulness, Healthy Eating, nutrition, and exercise habits to lead a healthy and fulfilling life."
+    },
+    {
+      icon: <FaBan className="text-yellow-500 text-2xl" />,
+      title: "False Marketing Prevention",
+      content: "Empower students to identify and avoid false advertising, misleading claims, and manipulative marketing tactics. Develop critical thinking skills to make informed decisions as consumers."
+    },
+    {
+      icon: <FaPuzzlePiece className="text-yellow-500 text-2xl" />, // Relevant icon for problem-solving
+      title: "Problem Solving & Critical Thinking",
+      content: "Develop analytical and creative problem-solving skills to tackle real-world challenges. Learn techniques like brainstorming, decision-making frameworks, and logical reasoning to approach problems effectively and innovatively."
     }
   ];
 
-  const approachCards = [
-    {
-      icon: <FaGraduationCap className="text-green-600 text-2xl" />,
-      title: "World-Class Expertise",
-      content: "Course designed by the top 0.1% of experts in their field, shaping future leaders."
-    },
-    {
-      icon: <FaUsers className="text-green-600 text-2xl" />,
-      title: "Global Course Design",
-      content: "Crafted specifically for top institutions like IIT, IIM, Harvard, and Oxford, and tailored for the Netherlands' schools."
-    },
-    {
-      icon: <FaChalkboardTeacher className="text-green-600 text-2xl" />,
-      title: "Future-Focused Skills",
-      content: "Courses focused on the skills and learning that matter now and in the future."
-    }
-  ];
 
-  const outcomeCards = [
-    {
-      title: "Digital Safety",
-      tag: "Top Result",
-      tagColor: "bg-green-100 text-green-800",
-      borderColor: "border-green-600",
-      metrics: [
-        { name: "Fraud Detection Skills", value: "94% Improvement", width: "94%" },
-        { name: "Online Safety Practices", value: "89%", width: "89%" },
-        { name: "Parental Awareness Increase", value: "78%", width: "78%" }
-      ],
-      achievement: "97% of students successfully identified and avoided simulated phishing attempts after our program."
-    },
-    {
-      title: "Emotional Intelligence",
-      tag: "Parent Favorite",
-      tagColor: "bg-yellow-100 text-yellow-800",
-      borderColor: "border-yellow-600",
-      metrics: [
-        { name: "Conflict Resolution", value: "70% Improvement", width: "70%" },
-        { name: "Emotional Control", value: "85%", width: "85%" },
-        { name: "Behavior Change", value: "82%", width: "82%" }
-      ],
-      achievement: "73% reduction in disciplinary incidents reported in schools and home after implementing our emotional intelligence curriculum."
-    },
-    {
-      title: "Personal Finance",
-      tag: "Life-Changing",
-      tagColor: "bg-green-100 text-green-800",
-      borderColor: "border-green-600",
-      metrics: [
-        { name: "Budgeting Skills", value: "80% Adoption", width: "80%" },
-        { name: "Saving Habit Formation", value: "88%", width: "88%" },
-        { name: "Financial awareness Score", value: "79%", width: "79%" }
-      ],
-      achievement: "Students started average savings of 60% of there monthly pocket money after the program, with 64% maintaining this habit for over a months."
-    },
-    {
-      title: "Entrepreneurship",
-      tag: "Most Popular",
-      tagColor: "bg-yellow-100 text-yellow-800",
-      borderColor: "border-yellow-600",
-      metrics: [
-        { name: "Business Plan Creation", value: "90% Adoptioon", width: "90%" },
-        { name: "Startup conversation", value: "83%", width: "83%" },
-        { name: "Goal Skill Acquisition", value: "65%", width: "65%" }
-      ],
-      achievement: "40% of students were serious about there idea and had converstation, idea sharing with there teacher and family members"
-    }
-  ];
+
+
 
   const testimonials = [
     {
@@ -313,7 +293,7 @@ const LandingPage = () => {
       {/* Core Programs */}
       <section id="core-programs" className="py-16 bg-gray-900">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl font-bold mb-2 text-center text-yellow-400">Essential Skills for Today's World</h2>
+          <h2 className="text-3xl font-bold mb-2 text-center text-yellow-400">Premium Seminars by Untradd</h2>
           <p className="text-gray-300 mb-12 text-center">Practical programs designed by experts to prepare students for real challenges</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -326,14 +306,22 @@ const LandingPage = () => {
                 <p className="text-gray-300">
                   {card.content}
                 </p>
-                <a href="#" className="flex items-center mt-4 text-yellow-400 font-medium">
+                <button
+                  onClick={() => openLearnMore(card)}
+                  className="flex items-center mt-4 text-yellow-400 font-medium"
+                >
                   Learn more <FaArrowRight className="ml-2" />
-                </a>
+                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Render the popup if a program is selected */}
+      {selectedProgram && (
+        <LearnMorePopup program={selectedProgram} onClose={closeLearnMore} />
+      )}
 
       {/* Our Approach */}
       <section className="py-16 bg-gray-800">
@@ -363,34 +351,7 @@ const LandingPage = () => {
             we took feedback from more than 500 students and 300+ parents-
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {outcomeCards.map((card, index) => (
-              <div key={index} className={`bg-green-900 p-8 rounded-xl shadow-lg border-t-4 ${card.borderColor}`}>
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-yellow-400">{card.title}</h3>
-                  <div className={`${card.tagColor} font-bold py-1 px-3 rounded-full text-sm`}>
-                    {card.tag}
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  {card.metrics.map((metric, i) => (
-                    <div key={i}>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-medium text-gray-300">{metric.name}</span>
-                        <span className="text-yellow-400 font-bold">{metric.value}</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div className="bg-yellow-500 h-2 rounded-full" style={{ width: metric.width }}></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-6 text-gray-300">
-                  <span className="font-bold text-yellow-400">Key Achievement:</span> {card.achievement}
-                </p>
-              </div>
-            ))}
-          </div>
+         
 
           {/* Teacher and Parent Feedback */}
           <div className="mt-16 bg-green-900 p-8 rounded-xl shadow-lg">
