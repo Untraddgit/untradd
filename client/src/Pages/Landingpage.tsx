@@ -21,20 +21,21 @@ import howitworks from '../assets/howitworks.jpg';
 
 const LandingPage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [activeModal, setActiveModal] = useState(null);
+  const [activeModal, setActiveModal] = useState<string | null>(null);
 
-  const scrollToSection = useCallback((id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setIsNavOpen(false);
-    }
-  }, []);
+// To this (add the string type annotation)
+const scrollToSection = useCallback((id: string) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+    setIsNavOpen(false);
+  }
+}, []);
 
-  const openModal = (id) => {
-    setActiveModal(id);
-    document.body.style.overflow = 'hidden';
-  };
+const openModal = (id: string) => {
+  setActiveModal(id);
+  document.body.style.overflow = 'hidden';
+};
 
   const closeModal = () => {
     setActiveModal(null);
