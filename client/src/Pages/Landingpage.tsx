@@ -20,9 +20,7 @@ import seminar from '../assets/seminar.jpg';
 import howitworks from '../assets/howitworks.jpg';
 
 import chetanImage from '../assets/teachers/seminar.jpg';
-import iyerImage from '../assets/teachers/iyer.jpg';
-import arjuImage from '../assets/teachers/arju.jpg';
-import krishnaImage from '../assets/teachers/krishna.jpg';
+
 
 const LandingPage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
