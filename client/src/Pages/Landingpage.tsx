@@ -1,12 +1,11 @@
 import { useState, useCallback } from 'react';
+import { FaChartLine } from 'react-icons/fa';
+
 import {
-  FaGraduationCap,
-  FaBrain,
-  FaShieldAlt,
-  FaHandHoldingUsd,
+  FaGraduationCap, FaChevronDown, FaChevronUp ,
+  FaShieldAlt, FaHandHoldingUsd, FaBrain,FaUsers,
   FaChalkboardTeacher,
-  FaUsers,
-  FaBars,
+    FaBars,
   FaBan,
   FaHeart,
   FaPuzzlePiece,
@@ -17,7 +16,13 @@ import {
 } from 'react-icons/fa';
 import { MdOutlineWork, MdTouchApp, MdSupervisorAccount } from 'react-icons/md';
 import seminar from '../assets/seminar.jpg';
+
 import howitworks from '../assets/howitworks.jpg';
+
+import chetanImage from '../assets/teachers/seminar.jpg';
+import iyerImage from '../assets/teachers/iyer.jpg';
+import arjuImage from '../assets/teachers/arju.jpg';
+import krishnaImage from '../assets/teachers/krishna.jpg';
 
 const LandingPage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -59,6 +64,14 @@ const openModal = (id: string) => {
       content: "Courses focused on the skills and learning that matter now and in the future."
     }
   ];
+
+  const teachers = [
+    { name: "Chetan Verma", credentials: "IIT Madras, Microsoft", expertise: "AI & Digital Literacy Lead", icon: <MdTouchApp className="inline mr-1" size={10} />, image: chetanImage },
+    { name: "Iyer Sai Krishnan", credentials: "NorthEastern University, MS AI/ML", expertise: "Problem Solving & Critical Thinking", icon: <FaHandHoldingUsd className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
+    { name: "Arju Swami", credentials: "IIT-BHU", expertise: "Human Psychology", icon: <FaShieldAlt className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
+    { name: "Krishna Bajpai", credentials: "Founder Posterwa", expertise: "Startup & Entrepreneurship Coach", icon: <FaChartLine className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
+      ];
+  
 
   const programCards = [
     {
@@ -467,15 +480,59 @@ const openModal = (id: string) => {
         </div>
       </section>
 
-      {/* Mission Statement */}
+    
       <section className="py-16 bg-gray-800">
-        <div className="container mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-yellow-400">Bridging the Gap Between Education and Real World</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We're on a mission to democratize quality education, ensuring every Indian student gains the same practical skills that empower graduates of IITs, IIMs, and the world's top 1% experts in their fields to thrive in today's competitive landscape.
-          </p>
+    <div className="container mx-auto px-6 md:px-12 text-center">
+      <h2 className="text-3xl font-bold mb-6 text-yellow-400">Bridging the Gap Between Education and Real World</h2>
+      <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+        We're on a mission to democratize quality education, ensuring every Indian student gains the same practical skills that empower graduates of IITs, IIMs, and the world's top 1% experts in their fields to thrive in today's competitive landscape.
+      </p>
+      
+      <h3 className="text-2xl font-bold mb-8 text-yellow-400">Learn From The Best</h3>
+      
+      {/* Scrollable container */}
+      <div className="relative max-w-4xl mx-auto">
+        <div className="overflow-x-auto pb-4 hide-scrollbar">
+          <div className="flex space-x-4 min-w-max px-2">
+            {teachers.map((teacher, index) => (
+              <div key={index} className="bg-green-900 p-5 rounded-xl shadow-lg border border-green-700 w-64 flex-shrink-0">
+                <div className="w-16 h-16 rounded-full border-2 border-yellow-400 overflow-hidden mx-auto mb-3">
+                  <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover" />
+                </div>
+                <h4 className="text-lg font-bold mb-1 text-white">{teacher.name}</h4>
+                <p className="text-gray-300 text-sm mb-1">{teacher.credentials}</p>
+                <div className="bg-green-800 text-yellow-400 text-xs py-1 px-3 rounded-full inline-block mt-1">
+                  {teacher.icon}
+                  {teacher.expertise}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
+        
+        {/* Optional scroll indicators/controls */}
+        <div className="flex justify-center mt-4">
+          <div className="flex space-x-2">
+            <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+            <div className="w-2 h-2 rounded-full bg-green-700"></div>
+            <div className="w-2 h-2 rounded-full bg-green-700"></div>
+            <div className="w-2 h-2 rounded-full bg-green-700"></div>
+            <div className="w-2 h-2 rounded-full bg-green-700"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>{`
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    `}</style>
+  </section>
 
       {/* Core Programs */}
       <section id="core-programs" className="py-16 bg-gray-900">
@@ -636,10 +693,115 @@ const openModal = (id: string) => {
         </div>
       </section>
 
-      {/* Measurable Outcomes */}
+{/* Course Success Metrics */}
+<section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800">
+  <div className="container mx-auto px-6 md:px-12">
+    <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">Proven Impact: Student Success Metrics</h2>
+    <div className="grid md:grid-cols-3 gap-8">
+      {/* Course Penetration Rate */}
+      <div className="bg-green-900 p-8 rounded-xl shadow-lg text-center">
+        <div className="text-4xl font-bold text-yellow-400 mb-2">92%</div>
+        <p className="text-gray-300">Course Penetration Rate</p>
+        <p className="text-gray-400 mt-2">Students who enrolled vs. total students targeted</p>
+      </div>
+      {/* Course Completion Rate */}
+      <div className="bg-green-900 p-8 rounded-xl shadow-lg text-center">
+        <div className="text-4xl font-bold text-yellow-400 mb-2">89%</div>
+        <p className="text-gray-300">Course Completion Rate</p>
+        <p className="text-gray-400 mt-2">Students who completed the course without dropping out</p>
+      </div>
+      {/* Skill Adoption Rate */}
+      <div className="bg-green-900 p-8 rounded-xl shadow-lg text-center">
+        <div className="text-4xl font-bold text-yellow-400 mb-2">85%</div>
+        <p className="text-gray-300">Skill Adoption Rate</p>
+        <p className="text-gray-400 mt-2">Students who applied skills in real-life after the course</p>
+      </div>
+      {/* Skill Retention */}
+      <div className="bg-green-900 p-8 rounded-xl shadow-lg text-center">
+        <div className="text-4xl font-bold text-yellow-400 mb-2">78%</div>
+        <p className="text-gray-300">Skill Retention Rate</p>
+        <p className="text-gray-400 mt-2">Students who retained skills 1 month after the seminar</p>
+      </div>
+      {/* Action Taken Percentage */}
+      <div className="bg-green-900 p-8 rounded-xl shadow-lg text-center md:col-span-2">
+        <div className="text-4xl font-bold text-yellow-400 mb-2">65%</div>
+        <p className="text-gray-300">Action Taken Percentage</p>
+        <p className="text-gray-400 mt-2">Students who took actionable steps using the skills learned</p>
+      </div>
+    </div>
+  </div>
+</section>
+     
+
+      {/* How It Works */}
+      <section id="how-it-works" className="py-16 bg-gray-900">
+        <div className="container mx-auto px-6 md:px-12">
+          <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">How It Works</h2>
+          <div className="flex flex-col md:flex-row">
+            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+              <img src={howitworks} alt="Students learning" className="rounded-xl shadow-2xl" />
+            </div>
+            <div className="md:w-1/2">
+              {howItWorksSteps.map((step, index) => (
+                <div key={index} className="mb-8">
+                  <div className="flex items-start">
+                    <div className="bg-yellow-500 rounded-full w-8 h-8 flex items-center justify-center text-gray-900 font-bold mr-4 flex-shrink-0 mt-1">{index + 1}</div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2 text-yellow-400">{step.title}</h3>
+                      <p className="text-gray-300">{step.content}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+{/* Testimonials */}
+{/* Testimonials */}
+<section className="py-16 bg-gray-800">
+  <div className="container mx-auto px-6 md:px-12">
+    <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">
+      What Schools Are Saying
+    </h2>
+    <div className="overflow-x-auto">
+      <div className="flex gap-8 min-w-max px-1">
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="w-80 bg-green-900 p-6 rounded-xl shadow-md flex-shrink-0"
+          >
+            <div className="flex text-yellow-400 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} />
+              ))}
+            </div>
+            <p className="text-gray-300 mb-6 italic break-words">
+              "{testimonial.content}"
+            </p>
+            <div className="flex items-center">
+              
+              <div>
+                <h4 className="font-bold text-white">{testimonial.name}</h4>
+                <p className="text-sm text-gray-400">{testimonial.title}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+       {/* Measurable Outcomes */}
       <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl font-bold mb-6 text-center text-yellow-400">Real Results for Students</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center text-yellow-400">75% of Schools Have Modern Subjects: Is Yours Falling Behind?</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12">
             Our programs don't just teach—they transform. Here's how our students perform after completing our seminars:
           </p>
@@ -675,93 +837,8 @@ const openModal = (id: string) => {
             </div>
           </div>
 
-          {/* Case Study Highlight */}
-          <div className="mt-16 bg-green-800 text-white p-8 rounded-xl shadow-lg">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-                <h3 className="text-2xl font-bold mb-4 text-yellow-400">Case Study: G D Public School, Rohtas</h3>
-                <p className="mb-4">After implementing our complete skill development program:</p>
-                <ul className="space-y-2">
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    <span>Digital fraud attempts against students dropped by 87%</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    <span>Student-led initiatives increased by 63%</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    <span>95% of parents reported higher confidence in their child's future readiness</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="md:w-1/3 text-center">
-                <div className="bg-gray-900 text-yellow-400 rounded-full p-6 inline-block">
-                  <div className="text-5xl font-bold">9.2</div>
-                  <div className="font-medium">out of 10</div>
-                </div>
-                <p className="mt-4 font-medium">Overall Satisfaction Score</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+         {/* Limited Availability Alert */}
 
-      {/* How It Works */}
-      <section id="how-it-works" className="py-16 bg-gray-900">
-        <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">How It Works</h2>
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
-              <img src={howitworks} alt="Students learning" className="rounded-xl shadow-2xl" />
-            </div>
-            <div className="md:w-1/2">
-              {howItWorksSteps.map((step, index) => (
-                <div key={index} className="mb-8">
-                  <div className="flex items-start">
-                    <div className="bg-yellow-500 rounded-full w-8 h-8 flex items-center justify-center text-gray-900 font-bold mr-4 flex-shrink-0 mt-1">{index + 1}</div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2 text-yellow-400">{step.title}</h3>
-                      <p className="text-gray-300">{step.content}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-16 bg-gray-800">
-        <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">What Schools Are Saying</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-green-900 p-8 rounded-xl shadow-md">
-                <div className="flex text-yellow-400 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-6 italic">"{testimonial.content}"</p>
-                <div className="flex items-center">
-                  <img src="/api/placeholder/48/48" alt="Person" className="w-12 h-12 rounded-full mr-4" />
-                  <div>
-                    <h4 className="font-bold text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-400">{testimonial.title}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -778,8 +855,35 @@ const openModal = (id: string) => {
             ))}
           </div>
         </div>
+        
       </section>
 
+{/* Limited Availability Alert */}
+<div className="mt-16 bg-green-800 text-white p-8 rounded-xl shadow-lg">
+  <div className="flex flex-col md:flex-row items-center justify-between">
+    <div className="md:w-1/2 mb-6 md:mb-0">
+      <h3 className="text-2xl font-bold mb-3 text-yellow-400">Limited Monthly Availability</h3>
+      <div className="flex items-center ml-16 mb-4">
+        <div className="text-5xl font-bold text-yellow-400 mr-3">20</div>
+        <div className="text-lg">presentations<br/>per Month only</div>
+      </div>
+      <p className="text-sm mb-2"></p>
+      <button className="bg-yellow-400 text-green-900 font-bold py-2 px-4 rounded hover:bg-yellow-300 transition">
+        Reserve Your Spot
+      </button>
+    </div>
+    <div className="md:w-1/2 flex justify-center">
+      <div className="relative">
+        <svg className="w-48 h-48" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#1a4725" strokeWidth="8"/>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#eab308" strokeWidth="8" strokeDasharray="283" strokeDashoffset="70"/>
+          <text x="50" y="45" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">Limited</text>
+          <text x="50" y="65" textAnchor="middle" fill="white" fontSize="14">Spots Left</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
 
 {/* Call To Action */}
 {/* CTA Section with TypeScript-friendly modal handling */}
@@ -787,7 +891,7 @@ const openModal = (id: string) => {
   <div className="container mx-auto px-6 md:px-12 text-center">
     <h2 className="text-3xl font-bold mb-4 text-yellow-400">Ready to Bring 21st Century Skills to Your School?</h2>
     <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-      Book a free presentation for your school or get early access to our online platform.
+      Book a presentation for your school or get early access to our online platform.
     </p>
 
     <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
@@ -798,7 +902,7 @@ const openModal = (id: string) => {
         }}
         className="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-yellow-400 transition duration-300"
       >
-        Book a Free Presentation
+        Book a Presentation
       </button>
 
       <button
@@ -808,7 +912,7 @@ const openModal = (id: string) => {
         }}
         className="bg-green-700 text-gray-200 font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition duration-300"
       >
-        Request Online Access
+        Talk to Our Experts
       </button>
     </div>
   </div>
@@ -927,18 +1031,42 @@ const openModal = (id: string) => {
 {/* FAQ Section */}
 <section className="py-16 bg-gray-800">
   <div className="container mx-auto px-6 md:px-12">
-    <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">Frequently Asked Questions</h2>
+    <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">
+      Frequently Asked Questions
+    </h2>
 
-    <div className="max-w-4xl mx-auto space-y-6">
-      {faqs.map((faq, index) => (
-        <div key={index} className="bg-green-900 p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-bold mb-3 text-yellow-400">{faq.question}</h3>
-          <p className="text-gray-300">{faq.answer}</p>
-        </div>
-      ))}
+    <div className="max-w-4xl mx-auto space-y-4">
+      {faqs.map((faq, index) => {
+        const [open, setOpen] = useState(null);
+        const toggle = (i) => setOpen(open === i ? null : i);
+
+        return (
+          <div
+            key={index}
+            className="bg-green-900 rounded-lg shadow-md"
+          >
+            <button
+              onClick={() => toggle(index)}
+              className="w-full flex justify-between items-center text-left p-6"
+            >
+              <h3 className="text-xl font-bold text-yellow-400">{faq.question}</h3>
+              <span className="text-yellow-400">
+                {open === index ? <FaChevronUp /> : <FaChevronDown />}
+              </span>
+            </button>
+            {open === index && (
+              <div className="px-6 pb-6 text-gray-300">
+                {faq.answer}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   </div>
 </section>
+
+
       <section id="contact" className="py-16 bg-gray-900">
   <div className="container mx-auto px-6 md:px-12">
     <div className="flex flex-col md:flex-row">
