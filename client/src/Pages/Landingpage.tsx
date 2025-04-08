@@ -756,7 +756,7 @@ const openModal = (id: string) => {
         </div>
       </section>
 
-{/* Testimonials */}
+
 {/* Testimonials */}
 <section className="py-16 bg-gray-800">
   <div className="container mx-auto px-6 md:px-12">
@@ -1035,8 +1035,9 @@ const openModal = (id: string) => {
 
     <div className="max-w-4xl mx-auto space-y-4">
       {faqs.map((faq, index) => {
-        const [open, setOpen] = useState(null);
-        const toggle = (i) => setOpen(open === i ? null : i);
+        const [open, setOpen] = useState<number | null>(null);
+
+        const toggle = (i: number) => setOpen(open === i ? null : i);
 
         return (
           <div
