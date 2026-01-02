@@ -20,7 +20,6 @@ import seminar from '../assets/seminar.jpg';
 import howitworks from '../assets/howitworks.jpg';
 
 import krishnaImage from '../assets/krishnabajpai.jpg';
-import nehaImage from '../assets/neha.jpg';
 import nehaGuptaImage from '../assets/nehagupta.jpeg';
 import rahulImage from '../assets/rahul.jpeg';
 import vikramImage from '../assets/vikram.jpg';
