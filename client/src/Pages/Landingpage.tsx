@@ -1240,7 +1240,7 @@ const teachers = [
               </div>
               <div>
                 <h4 className="font-bold text-white">Location</h4>
-                <p className="text-gray-300">Hyderabad, India</p>
+                <p className="text-gray-300">Bengaluru, India</p>
                 <p className="text-gray-300">(Available for presentations across India)</p>
               </div>
             </div>
