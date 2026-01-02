@@ -19,7 +19,18 @@ import seminar from '../assets/seminar.jpg';
 
 import howitworks from '../assets/howitworks.jpg';
 
-import chetanImage from '../assets/teachers/seminar.jpg';
+import krishnaImage from '../assets/krishnabajpai.jpg';
+import nehaImage from '../assets/neha.jpg';
+import nehaGuptaImage from '../assets/nehagupta.jpeg';
+import rahulImage from '../assets/rahul.jpeg';
+import vikramImage from '../assets/vikram.jpg';
+// import arjuImage from '../assets/arju swami.webp';
+import priyaImage from '../assets/priya.jpeg';
+import chetanImage from '../assets/chetan.jpeg';
+import tarunImage from '../assets/tarun.jpeg';
+
+import jenicaImage from '../assets/jenica.jpeg';
+import bibhuImage from '../assets/bibhu.jpeg';
 
 
 const LandingPage = () => {
@@ -63,12 +74,87 @@ const openModal = (id: string) => {
     }
   ];
 
-  const teachers = [
-    { name: "Chetan Verma", credentials: "IIT Madras, Microsoft", expertise: "AI & Digital Literacy Lead", icon: <MdTouchApp className="inline mr-1" size={10} />, image: chetanImage },
-    { name: "Iyer Sai Krishnan", credentials: "NorthEastern University, MS AI/ML", expertise: "Problem Solving & Critical Thinking", icon: <FaHandHoldingUsd className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
-    { name: "Arju Swami", credentials: "IIT-BHU", expertise: "Human Psychology", icon: <FaShieldAlt className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
-    { name: "Krishna Bajpai", credentials: "Founder Posterwa", expertise: "Startup & Entrepreneurship Coach", icon: <FaChartLine className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
-      ];
+const teachers = [
+  {
+    name: "Chetan Verma",
+    credentials: "IIT Madras, Microsoft",
+    expertise: "AI & Digital Literacy Lead",
+    icon: <FaBrain />,
+    image: chetanImage
+  },
+  {
+    name: "Sai Krishnan",
+    credentials: "MS, Northeastern University",
+    expertise: "AI/ML Expert, Ex-IBM",
+    icon: <FaBrain />,
+    image: null,
+    useIcon: true
+  },
+  {
+    name: "Krishna Bajpai",
+    credentials: "Founder Posterwa",
+    expertise: "Startup & Entrepreneurship Coach",
+    icon: <MdOutlineWork />,
+    image: krishnaImage
+  },
+  {
+    name: "Bibhu Ranjan",
+    credentials: "Ex Blackline, Ieltsappeal",
+    expertise: "Product Management Expert",
+    icon: <FaBrain />,
+    image: bibhuImage
+  },
+  {
+    name: "Kaustav Choubey",
+    credentials: "MSc, University of Cambridge",
+    expertise: "Analytics & Mathematics Expert",
+    icon: <FaChartLine />,
+    image: null,
+    useIcon: true
+  },
+  {
+    name: "Tarun Jain",
+    credentials: "Senior Developer, SAP Labs",
+    expertise: "Full Stack Developer",
+    icon: <FaBrain />,
+    image: tarunImage
+  },
+  {
+    name: "Jenica Chawla",
+    credentials: "Anti-Corruption Association NGO",
+    expertise: "Career Counselor",
+    icon: <FaGraduationCap />,
+    image: jenicaImage
+  },
+  {
+    name: "Priya Sharma",
+    credentials: "MTech, IIT Delhi",
+    expertise: "Cloud Architecture & DevOps",
+    icon: <FaBrain />,
+    image: priyaImage
+  },
+  {
+    name: "Vikram Singh",
+    credentials: "CISSP, CEH Certified",
+    expertise: "Cybersecurity Expert",
+    icon: <FaShieldAlt />,
+    image: vikramImage
+  },
+  {
+    name: "Neha Gupta",
+    credentials: "Design Lead, Figma Expert",
+    expertise: "UI/UX with AI",
+    icon: <FaBrain />,
+    image: nehaGuptaImage
+  },
+  {
+    name: "Rahul Verma",
+    credentials: "MBA, IIM Ahmedabad",
+    expertise: "Digital Marketing Expert",
+    icon: <FaChartLine />,
+    image: rahulImage
+  }
+];
   
 
   const programCards = [
@@ -492,19 +578,34 @@ const openModal = (id: string) => {
       <div className="relative max-w-4xl mx-auto">
         <div className="overflow-x-auto pb-4 hide-scrollbar">
           <div className="flex space-x-4 min-w-max px-2">
-            {teachers.map((teacher, index) => (
-              <div key={index} className="bg-green-900 p-5 rounded-xl shadow-lg border border-green-700 w-64 flex-shrink-0">
-                <div className="w-16 h-16 rounded-full border-2 border-yellow-400 overflow-hidden mx-auto mb-3">
-                  <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover" />
-                </div>
-                <h4 className="text-lg font-bold mb-1 text-white">{teacher.name}</h4>
-                <p className="text-gray-300 text-sm mb-1">{teacher.credentials}</p>
-                <div className="bg-green-800 text-yellow-400 text-xs py-1 px-3 rounded-full inline-block mt-1">
-                  {teacher.icon}
-                  {teacher.expertise}
-                </div>
-              </div>
-            ))}
+           {teachers.map((teacher, index) => (
+  <div
+    key={index}
+    className="flex-shrink-0 w-64 bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl p-6 border border-yellow-500/20 hover:border-yellow-500/50 transition duration-300"
+  >
+    <div className="flex flex-col items-center text-center space-y-4">
+      {teacher.useIcon || !teacher.image ? (
+        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center text-gray-900">
+          <FaUsers className="text-3xl" />
+        </div>
+      ) : (
+        <img
+          src={teacher.image}
+          alt={teacher.name}
+          className="w-20 h-20 rounded-full object-cover border-4 border-yellow-500"
+        />
+      )}
+      <div>
+        <h3 className="text-xl font-bold text-white">{teacher.name}</h3>
+        <p className="text-yellow-400 text-sm mt-1">{teacher.credentials}</p>
+      </div>
+      <div className="flex items-center space-x-2 text-gray-300">
+        {teacher.icon}
+        <span className="text-sm">{teacher.expertise}</span>
+      </div>
+    </div>
+  </div>
+))}
           </div>
         </div>
         
