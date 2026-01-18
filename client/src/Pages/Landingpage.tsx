@@ -383,9 +383,8 @@ const teachers = [
         position: "Director, Progressive Public School"
       }
     },
-    const programCards = [
     {
-      id: "personality-communication",
+      id: "personality & communication",
       icon: <FaUsers />,
       title: "Personality & Communication",
       content: "Master the art of effective communication and develop a magnetic personality. Learn public speaking, active listening, body language, and interpersonal skills that open doors in both personal and professional life.",
@@ -415,7 +414,7 @@ const teachers = [
       }
     },
     {
-      id: "career-domain",
+      id: "career & domain Introduction",
       icon: <MdOutlineWork />,
       title: "Career & Domain Introduction",
       content: "Explore diverse career paths and industry domains early. From tech and healthcare to creative arts and business, help students discover their passion and make informed decisions about their future with real-world insights.",
