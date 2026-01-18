@@ -383,6 +383,68 @@ const teachers = [
         position: "Director, Progressive Public School"
       }
     },
+    const programCards = [
+    {
+      id: "personality-communication",
+      icon: <FaUsers />,
+      title: "Personality & Communication",
+      content: "Master the art of effective communication and develop a magnetic personality. Learn public speaking, active listening, body language, and interpersonal skills that open doors in both personal and professional life.",
+      itinerary: [
+        "Understanding personality types and self-awareness",
+        "Verbal and non-verbal communication mastery",
+        "Public speaking and presentation skills",
+        "Active listening and empathy development",
+        "Body language and confidence building",
+        "Conversation skills and networking basics",
+        "Handling criticism and giving constructive feedback",
+        "Professional etiquette and first impressions",
+        "Practical communication exercises and role-plays",
+        "Certificate and practice platform"
+      ],
+      outcomes: [
+        "70% improvement in public speaking confidence",
+        "Enhanced ability to express ideas clearly and persuasively",
+        "Better interpersonal relationships and social skills",
+        "Development of professional communication habits",
+        "Increased self-confidence in diverse social situations"
+      ],
+      testimonial: {
+        content: "The Personality & Communication program transformed our students from hesitant speakers to confident communicators. We've seen remarkable improvement in their classroom participation, leadership roles, and even parent-teacher interactions. This is a skill set they'll use for life.",
+        author: "Mrs. Kavita Menon",
+        position: "Principal, Blue Bells International School"
+      }
+    },
+    {
+      id: "career-domain",
+      icon: <MdOutlineWork />,
+      title: "Career & Domain Introduction",
+      content: "Explore diverse career paths and industry domains early. From tech and healthcare to creative arts and business, help students discover their passion and make informed decisions about their future with real-world insights.",
+      itinerary: [
+        "Overview of major career domains and industries",
+        "Technology sector: AI, software, cybersecurity, data science",
+        "Healthcare and life sciences opportunities",
+        "Creative fields: design, content, media, arts",
+        "Business, finance, and consulting paths",
+        "Engineering and manufacturing specializations",
+        "Government, law, and public service careers",
+        "Understanding skill requirements for different domains",
+        "Career planning and goal-setting workshops",
+        "Guest speaker sessions from industry professionals",
+        "Certificate and career assessment tools"
+      ],
+      outcomes: [
+        "85% of students identify 2-3 career paths aligned with their interests",
+        "Clear understanding of skills needed for chosen domains",
+        "Informed decision-making for stream and subject selection",
+        "Reduced career confusion and anxiety about the future",
+        "Early exposure to industry trends and opportunities"
+      ],
+      testimonial: {
+        content: "The Career & Domain Introduction seminar was a game-changer for our students in grades 9-11. Many students had no idea about the breadth of career options available. After this program, we noticed more purposeful academic choices and increased motivation as students connected their studies to real-world careers.",
+        author: "Mr. Sandeep Malhotra",
+        position: "Career Counselor, Cambridge International School"
+      }
+    },
     {
       id: "problem-solving",
       icon: <FaPuzzlePiece className="text-yellow-500 text-2xl" />,
