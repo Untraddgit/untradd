@@ -19,7 +19,17 @@ import seminar from '../assets/seminar.jpg';
 
 import howitworks from '../assets/howitworks.jpg';
 
-import chetanImage from '../assets/teachers/seminar.jpg';
+import krishnaImage from '../assets/krishnabajpai.jpg';
+import nehaGuptaImage from '../assets/nehagupta.jpeg';
+import rahulImage from '../assets/rahul.jpeg';
+import vikramImage from '../assets/vikram.jpg';
+// import arjuImage from '../assets/arju swami.webp';
+import priyaImage from '../assets/priya.jpeg';
+import chetanImage from '../assets/chetan.jpeg';
+import tarunImage from '../assets/tarun.jpeg';
+
+import jenicaImage from '../assets/jenica.jpeg';
+import bibhuImage from '../assets/bibhu.jpeg';
 
 
 const LandingPage = () => {
@@ -63,12 +73,87 @@ const openModal = (id: string) => {
     }
   ];
 
-  const teachers = [
-    { name: "Chetan Verma", credentials: "IIT Madras, Microsoft", expertise: "AI & Digital Literacy Lead", icon: <MdTouchApp className="inline mr-1" size={10} />, image: chetanImage },
-    { name: "Iyer Sai Krishnan", credentials: "NorthEastern University, MS AI/ML", expertise: "Problem Solving & Critical Thinking", icon: <FaHandHoldingUsd className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
-    { name: "Arju Swami", credentials: "IIT-BHU", expertise: "Human Psychology", icon: <FaShieldAlt className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
-    { name: "Krishna Bajpai", credentials: "Founder Posterwa", expertise: "Startup & Entrepreneurship Coach", icon: <FaChartLine className="inline mr-1" size={10} />, image: "/api/placeholder/80/80" },
-      ];
+const teachers = [
+  {
+    name: "Chetan Verma",
+    credentials: "IIT Madras, Microsoft",
+    expertise: "AI & Digital Literacy Lead",
+    icon: <FaBrain />,
+    image: chetanImage
+  },
+  {
+    name: "Sai Krishnan",
+    credentials: "MS, Northeastern University",
+    expertise: "AI/ML Expert, Ex-IBM",
+    icon: <FaBrain />,
+    image: null,
+    useIcon: true
+  },
+  {
+    name: "Krishna Bajpai",
+    credentials: "Founder Posterwa",
+    expertise: "Startup & Entrepreneurship Coach",
+    icon: <MdOutlineWork />,
+    image: krishnaImage
+  },
+  {
+    name: "Bibhu Ranjan",
+    credentials: "Ex Blackline, Ieltsappeal",
+    expertise: "Product Management Expert",
+    icon: <FaBrain />,
+    image: bibhuImage
+  },
+  {
+    name: "Kaustav Choubey",
+    credentials: "MSc, University of Cambridge",
+    expertise: "Analytics & Mathematics Expert",
+    icon: <FaChartLine />,
+    image: null,
+    useIcon: true
+  },
+  {
+    name: "Tarun Jain",
+    credentials: "Senior Developer, SAP Labs",
+    expertise: "Full Stack Developer",
+    icon: <FaBrain />,
+    image: tarunImage
+  },
+  {
+    name: "Jenica Chawla",
+    credentials: "Anti-Corruption Association NGO",
+    expertise: "Career Counselor",
+    icon: <FaGraduationCap />,
+    image: jenicaImage
+  },
+  {
+    name: "Priya Sharma",
+    credentials: "MTech, IIT Delhi",
+    expertise: "Cloud Architecture & DevOps",
+    icon: <FaBrain />,
+    image: priyaImage
+  },
+  {
+    name: "Vikram Singh",
+    credentials: "CISSP, CEH Certified",
+    expertise: "Cybersecurity Expert",
+    icon: <FaShieldAlt />,
+    image: vikramImage
+  },
+  {
+    name: "Neha Gupta",
+    credentials: "Design Lead, Figma Expert",
+    expertise: "UI/UX with AI",
+    icon: <FaBrain />,
+    image: nehaGuptaImage
+  },
+  {
+    name: "Rahul Verma",
+    credentials: "MBA, IIM Ahmedabad",
+    expertise: "Digital Marketing Expert",
+    icon: <FaChartLine />,
+    image: rahulImage
+  }
+];
   
 
   const programCards = [
@@ -553,19 +638,34 @@ const openModal = (id: string) => {
       <div className="relative max-w-4xl mx-auto">
         <div className="overflow-x-auto pb-4 hide-scrollbar">
           <div className="flex space-x-4 min-w-max px-2">
-            {teachers.map((teacher, index) => (
-              <div key={index} className="bg-green-900 p-5 rounded-xl shadow-lg border border-green-700 w-64 flex-shrink-0">
-                <div className="w-16 h-16 rounded-full border-2 border-yellow-400 overflow-hidden mx-auto mb-3">
-                  <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover" />
-                </div>
-                <h4 className="text-lg font-bold mb-1 text-white">{teacher.name}</h4>
-                <p className="text-gray-300 text-sm mb-1">{teacher.credentials}</p>
-                <div className="bg-green-800 text-yellow-400 text-xs py-1 px-3 rounded-full inline-block mt-1">
-                  {teacher.icon}
-                  {teacher.expertise}
-                </div>
-              </div>
-            ))}
+           {teachers.map((teacher, index) => (
+  <div
+    key={index}
+    className="flex-shrink-0 w-64 bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl p-6 border border-yellow-500/20 hover:border-yellow-500/50 transition duration-300"
+  >
+    <div className="flex flex-col items-center text-center space-y-4">
+      {teacher.useIcon || !teacher.image ? (
+        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center text-gray-900">
+          <FaUsers className="text-3xl" />
+        </div>
+      ) : (
+        <img
+          src={teacher.image}
+          alt={teacher.name}
+          className="w-20 h-20 rounded-full object-cover border-4 border-yellow-500"
+        />
+      )}
+      <div>
+        <h3 className="text-xl font-bold text-white">{teacher.name}</h3>
+        <p className="text-yellow-400 text-sm mt-1">{teacher.credentials}</p>
+      </div>
+      <div className="flex items-center space-x-2 text-gray-300">
+        {teacher.icon}
+        <span className="text-sm">{teacher.expertise}</span>
+      </div>
+    </div>
+  </div>
+))}
           </div>
         </div>
         
@@ -1007,7 +1107,7 @@ const openModal = (id: string) => {
 
       <div className="space-y-4">
         <a
-          href="tel:+918789698369"
+          href="tel:+919153488985"
           className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"
         >
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1017,7 +1117,7 @@ const openModal = (id: string) => {
         </a>
 
         <a
-          href="https://wa.me/918789698369?text=Hello%20Untradd,%20I%20would%20like%20to%20book%20a%20presentation%20for%20my%20school.%20Please%20contact%20me%20with%20more%20information."
+          href="https://wa.me/919153488985?text=Hello%20Untradd,%20I%20would%20like%20to%20book%20a%20presentation%20for%20my%20school.%20Please%20contact%20me%20with%20more%20information."
           target="_blank"
           rel="noopener noreferrer"
           className="w-full bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"
@@ -1062,7 +1162,7 @@ const openModal = (id: string) => {
 
       <div className="space-y-4">
         <a
-          href="tel:+918789698369"
+          href="tel:+919153488985"
           className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"
         >
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1072,7 +1172,7 @@ const openModal = (id: string) => {
         </a>
 
         <a
-          href="https://wa.me/918789698369?text=Hello%20Untradd,%20I'm%20interested%20in%20getting%20access%20to%20your%20online%20platform.%20Please%20provide%20me%20with%20more%20information."
+          href="https://wa.me/919153488985?text=Hello%20Untradd,%20I'm%20interested%20in%20getting%20access%20to%20your%20online%20platform.%20Please%20provide%20me%20with%20more%20information."
           target="_blank"
           rel="noopener noreferrer"
           className="w-full bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"
@@ -1142,7 +1242,7 @@ const openModal = (id: string) => {
           const name = nameInput?.value || "";
           if (!name) return;
           const message = `Hey Untradd, I am ${name}, I wanted to know more about the presentation.`;
-          const whatsappUrl = `https://wa.me/918789698369?text=${encodeURIComponent(message)}`;
+          const whatsappUrl = `https://wa.me/919153488985?text=${encodeURIComponent(message)}`;
           window.open(whatsappUrl, '_blank');
         }}>
           <div>
@@ -1188,7 +1288,7 @@ const openModal = (id: string) => {
               </div>
               <div>
                 <h4 className="font-bold text-white">Phone</h4>
-                <p className="text-gray-300">+91 8789698369</p>
+                <p className="text-gray-300">+91 9153488985</p>
               </div>
             </div>
 
@@ -1201,7 +1301,7 @@ const openModal = (id: string) => {
               </div>
               <div>
                 <h4 className="font-bold text-white">Location</h4>
-                <p className="text-gray-300">Hyderabad, India</p>
+                <p className="text-gray-300">Bengaluru, India</p>
                 <p className="text-gray-300">(Available for presentations across India)</p>
               </div>
             </div>
@@ -1220,7 +1320,7 @@ const openModal = (id: string) => {
                   <path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path>
                 </svg>
               </a>
-              <a href="https://wa.me/918789698369" className="bg-green-800 p-3 rounded-full text-yellow-400 hover:bg-green-700 transition duration-300">
+              <a href="https://wa.me/919153488985" className="bg-green-800 p-3 rounded-full text-yellow-400 hover:bg-green-700 transition duration-300">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
                 </svg>
