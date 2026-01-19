@@ -299,6 +299,67 @@ const openModal = (id: string) => {
       }
     },
     {
+      id: "personality & communication",
+      icon: <FaUsers />,
+      title: "Personality & Communication",
+      content: "Master the art of effective communication and develop a magnetic personality. Learn public speaking, active listening, body language, and interpersonal skills that open doors in both personal and professional life.",
+      itinerary: [
+        "Understanding personality types and self-awareness",
+        "Verbal and non-verbal communication mastery",
+        "Public speaking and presentation skills",
+        "Active listening and empathy development",
+        "Body language and confidence building",
+        "Conversation skills and networking basics",
+        "Handling criticism and giving constructive feedback",
+        "Professional etiquette and first impressions",
+        "Practical communication exercises and role-plays",
+        "Certificate and practice platform"
+      ],
+      outcomes: [
+        "70% improvement in public speaking confidence",
+        "Enhanced ability to express ideas clearly and persuasively",
+        "Better interpersonal relationships and social skills",
+        "Development of professional communication habits",
+        "Increased self-confidence in diverse social situations"
+      ],
+      testimonial: {
+        content: "The Personality & Communication program transformed our students from hesitant speakers to confident communicators. We've seen remarkable improvement in their classroom participation, leadership roles, and even parent-teacher interactions. This is a skill set they'll use for life.",
+        author: "Mrs. Kavita Menon",
+        position: "Principal, Blue Bells International School"
+      }
+    },
+    {
+      id: "career & domain Introduction",
+      icon: <MdOutlineWork />,
+      title: "Career & Domain Introduction",
+      content: "Explore diverse career paths and industry domains early. From tech and healthcare to creative arts and business, help students discover their passion and make informed decisions about their future with real-world insights.",
+      itinerary: [
+        "Overview of major career domains and industries",
+        "Technology sector: AI, software, cybersecurity, data science",
+        "Healthcare and life sciences opportunities",
+        "Creative fields: design, content, media, arts",
+        "Business, finance, and consulting paths",
+        "Engineering and manufacturing specializations",
+        "Government, law, and public service careers",
+        "Understanding skill requirements for different domains",
+        "Career planning and goal-setting workshops",
+        "Guest speaker sessions from industry professionals",
+        "Certificate and career assessment tools"
+      ],
+      outcomes: [
+        "85% of students identify 2-3 career paths aligned with their interests",
+        "Clear understanding of skills needed for chosen domains",
+        "Informed decision-making for stream and subject selection",
+        "Reduced career confusion and anxiety about the future",
+        "Early exposure to industry trends and opportunities"
+      ],
+      testimonial: {
+        content: "The Career & Domain Introduction seminar was a game-changer for our students in grades 9-11. Many students had no idea about the breadth of career options available. After this program, we noticed more purposeful academic choices and increased motivation as students connected their studies to real-world careers.",
+        author: "Mr. Sandeep Malhotra",
+        position: "Career Counselor, Cambridge International School"
+      }
+    },
+    {
       id: "problem-solving",
       icon: <FaPuzzlePiece className="text-yellow-500 text-2xl" />,
       title: "Problem Solving & Critical Thinking",
@@ -401,10 +462,10 @@ const openModal = (id: string) => {
   return (
     <div className="font-sans bg-gray-900 text-gray-100">
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg z-50 shadow-md">
+      <nav className="fixed top-0 left-0 right-0 bg-gray-50 bg-opacity-90 backdrop-filter backdrop-blur-lg z-50 shadow-md">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div
-            className="text-yellow-400 text-3xl font-bold cursor-pointer"
+            className="text-yellow-700 text-3xl font-bold cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
             Untradd.
@@ -412,13 +473,13 @@ const openModal = (id: string) => {
           <div className="hidden md:flex space-x-6">
             <button
               onClick={() => scrollToSection('core-programs')}
-              className="px-4 py-2 text-sm text-gray-300 hover:text-yellow-400 border border-gray-500 rounded-md hover:border-yellow-400 transition duration-300"
+              className="px-4 py-2 text-sm text-black hover:text-yellow-700 border border-gray-500 rounded-md hover:border-yellow-400 transition duration-300"
             >
               Courses
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="px-4 py-2 text-sm text-gray-300 hover:text-yellow-400 border border-gray-500 rounded-md hover:border-yellow-400 transition duration-300"
+              className="px-4 py-2 text-sm text-black hover:text-yellow-700 border border-gray-500 rounded-md hover:border-yellow-400 transition duration-300"
             >
               Contact Us
             </button>
@@ -479,14 +540,14 @@ const openModal = (id: string) => {
       </section>
 
     
-      <section className="py-16 bg-gray-800">
+      <section className="py-16 bg-white">
     <div className="container mx-auto px-6 md:px-12 text-center">
-      <h2 className="text-3xl font-bold mb-6 text-yellow-400">Bridging the Gap Between Education and Real World</h2>
-      <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+      <h2 className="text-3xl font-bold mb-6 text-green-800">Bridging the Gap Between Education and Real World</h2>
+      <p className="text-xl text-gray-900 max-w-3xl mx-auto mb-12">
         We're on a mission to democratize quality education, ensuring every Indian student gains the same practical skills that empower graduates of IITs, IIMs, and the world's top 1% experts in their fields to thrive in today's competitive landscape.
       </p>
       
-      <h3 className="text-2xl font-bold mb-8 text-yellow-400">Learn From The Best</h3>
+      <h3 className="text-2xl font-bold mb-8 text-yellow-700">Learn From The Best</h3>
       
       {/* Scrollable container */}
       <div className="relative max-w-4xl mx-auto">
@@ -674,9 +735,9 @@ const openModal = (id: string) => {
       ))}
 
      {/* Our Approach */}
-     <section className="py-16 bg-gray-800">
+     <section className="py-16 bg-white">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">What Makes Us Different</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-yellow-700">What Makes Us Different</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {approachCards.map((card, index) => (
               <div key={index} className="bg-green-900 p-8 rounded-xl shadow-md text-center">
@@ -732,9 +793,9 @@ const openModal = (id: string) => {
      
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-16 bg-gray-900">
+      <section id="how-it-works" className="py-16 bg-gray-200">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl font-bold mb-12 text-center text-yellow-400">How It Works</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-yellow-700">How It Works</h2>
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
               <img src={howitworks} alt="Students learning" className="rounded-xl shadow-2xl" />
@@ -745,8 +806,8 @@ const openModal = (id: string) => {
                   <div className="flex items-start">
                     <div className="bg-yellow-500 rounded-full w-8 h-8 flex items-center justify-center text-gray-900 font-bold mr-4 flex-shrink-0 mt-1">{index + 1}</div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2 text-yellow-400">{step.title}</h3>
-                      <p className="text-gray-300">{step.content}</p>
+                      <h3 className="text-xl font-bold mb-2 text-yellow-700">{step.title}</h3>
+                      <p className="text-gray-800">{step.content}</p>
                     </div>
                   </div>
                 </div>
